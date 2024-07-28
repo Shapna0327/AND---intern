@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Practice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Code Practice</h1>
+        <p>Select a programming language to start coding:</p>
+        <div class="language-buttons">
+            <button onclick="chooseLanguage('JavaScript')">JavaScript</button>
+            <button onclick="chooseLanguage('HTML')">HTML</button>
+            <button onclick="chooseLanguage('CSS')">CSS</button>
+        </div>
+    </div>
+    <script>
+        function chooseLanguage(language) {
+            window.location.href = `editor.html?language=${language}`;
+        }
+    </script>
+</body>
+</html>

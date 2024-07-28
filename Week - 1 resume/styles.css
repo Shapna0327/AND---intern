@@ -1,0 +1,233 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in;
+}
+
+header h1 {
+  font-size: 2em;
+  color: #333;
+}
+
+header p {
+  margin: 0;
+  color: #777;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.resume-container {
+  max-width: 800px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  transition: background-color 0.3s, color 0.3s;
+  animation: slideIn 1s ease-in-out;
+}
+
+section {
+  margin-bottom: 20px;
+  animation: fadeIn 1.5s ease-in;
+}
+
+h2 {
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 5px;
+  color: #007bff;
+  margin-bottom: 10px;
+  animation: slideIn 1s ease-in-out;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 5px;
+}
+
+.job, .school, .project, .skill-group {
+  margin-bottom: 10px;
+}
+
+.job h3, .school h3, .project h3, .skill-group h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #333;
+  animation: fadeIn 2s ease-in;
+}
+
+.job p, .school p, .project p, .skill-group p {
+  margin: 5px 0;
+  color: #777;
+}
+
+.skills ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skills li {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.skills li:hover {
+  background-color: #0056b3;
+}
+
+.dark-mode body {
+  background-color: #333;
+  color: #f4f4f4;
+}
+
+.dark-mode .resume-container {
+  background-color: #444;
+}
+
+.dark-mode header h1, .dark-mode header p {
+  color: #f4f4f4;
+}
+
+.dark-mode h2 {
+  color: #80d6ff;
+}
+
+.dark-mode .skills li {
+  background-color: #0056b3;
+}
+
+.dark-mode .skills li:hover {
+  background-color: #003d7a;
+}
+
+.dark-mode .job h3, .dark-mode .school h3, .dark-mode .project h3, .dark-mode .skill-group h3 {
+  color: #f4f4f4;
+}
+
+.dark-mode .job p, .dark-mode .school p, .dark-mode .project p, .dark-mode .skill-group p {
+  color: #ddd;
+}
+
+#dark-mode-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+#dark-mode-toggle:hover {
+  background-color: #0056b3;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+      transform: translateY(-20px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+  .resume-container {
+      padding: 15px;
+      margin: 15px;
+  }
+
+  header h1 {
+      font-size: 1.5em;
+  }
+
+  header p {
+      font-size: 0.9em;
+  }
+
+  .job h3, .school h3, .project h3, .skill-group h3 {
+      font-size: 1.1em;
+  }
+
+  .skills ul {
+      flex-direction: column;
+  }
+
+  .skills li {
+      width: 100%;
+      text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+      font-size: 1.2em;
+  }
+
+  header p {
+      font-size: 0.8em;
+  }
+
+  .resume-container {
+      padding: 10px;
+      margin: 10px;
+  }
+
+  .job h3, .school h3, .project h3, .skill-group h3 {
+      font-size: 1em;
+  }
+
+  .skills li {
+      font-size: 0.9em;
+  }
+
+  #dark-mode-toggle {
+      font-size: 14px;
+      padding: 8px 16px;
+  }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="language-title"></h1>
+        <textarea id="code-editor" placeholder="Start coding here..."></textarea>
+        <button onclick="runCode()">Run Code</button>
+        <div id="output"></div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const language = urlParams.get('language');
+            document.getElementById('language-title').innerText = `Code Editor - ${language}`;
+        });
+
+        function runCode() {
+            const code = document.getElementById('code-editor').value;
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = '';
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const language = urlParams.get('language');
+
+            if (language === 'JavaScript') {
+                try {
+                    const result = eval(code);
+                    outputDiv.innerText = result;
+                } catch (e) {
+                    outputDiv.innerText = `Error: ${e.message}`;
+                }
+            } else if (language === 'HTML' || language === 'CSS') {
+                const iframe = document.createElement('iframe');
+                iframe.style.width = '100%';
+                iframe.style.height = '300px';
+                outputDiv.appendChild(iframe);
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                iframeDoc.open();
+                iframeDoc.write(code);
+                iframeDoc.close();
+            }
+        }
+    </script>
+</body>
+</html>
